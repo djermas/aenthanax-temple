@@ -1,0 +1,407 @@
+/* ===== VARIABLES SACRÉES ===== */
+:root {
+    /* Couleurs du Temple */
+    --sacred-black: #0a0a0a;
+    --deep-black: #000000;
+    --sacred-gold: #D4AF37;
+    --gold-light: #F4E4A6;
+    --gold-glow: rgba(212, 175, 55, 0.15);
+    --ivory: #F8F5E6;
+    --stone: #1a1a1a;
+    
+    /* Typographie */
+    --font-cinzel: 'Cinzel', serif;
+    --font-inter: 'Inter', sans-serif;
+    
+    /* Effets */
+    --glow: 0 0 20px var(--gold-glow);
+    --transition: all 0.3s ease;
+}
+
+/* ===== RÉINITIALISATION ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-inter);
+    background: var(--deep-black);
+    color: var(--ivory);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.temple-theme {
+    background: linear-gradient(180deg, var(--deep-black) 0%, var(--sacred-black) 100%);
+    min-height: 100vh;
+}
+
+/* ===== NAVIGATION SACRÉE ===== */
+.sacred-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom: 2px solid var(--sacred-gold);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: var(--font-cinzel);
+    color: var(--sacred-gold);
+}
+
+.hieroglyph {
+    font-size: 2.2rem;
+    animation: pulse 4s infinite;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--ivory);
+    text-decoration: none;
+    font-family: var(--font-cinzel);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--sacred-gold);
+    background: var(--gold-glow);
+}
+
+.nav-link.active {
+    color: var(--sacred-gold);
+    border-bottom: 2px solid var(--sacred-gold);
+}
+
+.nav-cta {
+    margin-left: 2rem;
+}
+
+/* ===== BOUTONS SACRÉS ===== */
+.sacred-button {
+    background: transparent;
+    color: var(--sacred-gold);
+    border: 2px solid var(--sacred-gold);
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-cinzel);
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.sacred-button:hover {
+    background: var(--sacred-gold);
+    color: var(--deep-black);
+    box-shadow: var(--glow);
+}
+
+.sacred-button.large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+}
+
+/* ===== SECTION HÉRO ===== */
+.hero-section {
+    padding: 5rem 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-family: var(--font-cinzel);
+    font-size: 4rem;
+    color: var(--sacred-gold);
+    margin-bottom: 2rem;
+    line-height: 1.2;
+}
+
+.main-title .line-1,
+.main-title .line-2 {
+    display: block;
+}
+
+.lead-text {
+    font-size: 1.25rem;
+    color: var(--ivory);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    opacity: 0.9;
+}
+
+/* ===== PILLIERS ===== */
+.pillars-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 4rem;
+    flex-wrap: wrap;
+}
+
+.pillar {
+    background: rgba(26, 26, 26, 0.7);
+    border: 1px solid var(--sacred-gold);
+    border-radius: 12px;
+    padding: 2rem;
+    width: 220px;
+    transition: var(--transition);
+}
+
+.pillar:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--glow);
+}
+
+.pillar-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.pillar h3 {
+    font-family: var(--font-cinzel);
+    color: var(--sacred-gold);
+    margin-bottom: 0.5rem;
+}
+
+.pillar p {
+    color: var(--ivory);
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* ===== MODULES ===== */
+.modules-section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-family: var(--font-cinzel);
+    font-size: 2.5rem;
+    color: var(--sacred-gold);
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 3px;
+    background: var(--sacred-gold);
+    margin: 1rem auto;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.module-card {
+    background: rgba(26, 26, 26, 0.7);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.module-card:hover {
+    border-color: var(--sacred-gold);
+    box-shadow: var(--glow);
+}
+
+.module-number {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-family: var(--font-cinzel);
+    font-size: 1.5rem;
+    color: var(--sacred-gold);
+    opacity: 0.3;
+}
+
+.module-card h3 {
+    font-family: var(--font-cinzel);
+    color: var(--ivory);
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.module-card p {
+    color: var(--ivory);
+    opacity: 0.7;
+    font-size: 0.95rem;
+}
+
+/* ===== OSIRISE PREVIEW ===== */
+.osirise-preview {
+    padding: 5rem 2rem;
+    background: rgba(26, 26, 26, 0.5);
+    border-top: 2px solid var(--sacred-gold);
+    border-bottom: 2px solid var(--sacred-gold);
+    margin: 4rem 0;
+}
+
+.osirise-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.osirise-desc {
+    font-size: 1.1rem;
+    color: var(--ivory);
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+.chat-placeholder {
+    background: rgba(10, 10, 10, 0.8);
+    border: 1px solid var(--sacred-gold);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.message {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: flex-start;
+}
+
+.message:last-child {
+    margin-bottom: 0;
+}
+
+.avatar {
+    font-size: 1.8rem;
+    min-width: 40px;
+}
+
+.ai-message .avatar {
+    color: var(--sacred-gold);
+}
+
+.user-message .avatar {
+    color: var(--ivory);
+}
+
+.message .text {
+    background: rgba(212, 175, 55, 0.1);
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 3px solid var(--sacred-gold);
+}
+
+.user-message .text {
+    background: rgba(248, 245, 230, 0.1);
+    border-left-color: var(--ivory);
+}
+
+/* ===== FOOTER ===== */
+.temple-footer {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: rgba(10, 10, 10, 0.95);
+    border-top: 1px solid var(--sacred-gold);
+}
+
+.footer-logo {
+    font-family: var(--font-cinzel);
+    font-size: 2rem;
+    color: var(--sacred-gold);
+    margin-bottom: 1rem;
+}
+
+.footer-text {
+    color: var(--ivory);
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+}
+
+.copyright {
+    color: var(--ivory);
+    opacity: 0.6;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.gold-glow {
+    text-shadow: 0 0 10px var(--sacred-gold),
+                 0 0 20px var(--sacred-gold),
+                 0 0 30px var(--sacred-gold);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .sacred-nav {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+    }
+    
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .pillars-container {
+        gap: 1.5rem;
+    }
+    
+    .pillar {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+}
