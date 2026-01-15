@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Rituel OSIRIS-NORRA — Activation</title>
+    <style>
+        body {
+            background: #0a0a15;
+            color: #f0e6d2;
+            font-family: monospace;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .terminal {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #d4af37;
+        }
+        
+        .prompt { color: #d4af37; }
+        .command { color: #4169e1; }
+        .output { color: #90ee90; margin: 1rem 0; }
+        
+        .fragment {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border: 1px solid;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .nord { border-color: #4169e1; color: #4169e1; }
+        .est { border-color: #d4af37; color: #d4af37; }
+        .sud { border-color: #ff6b6b; color: #ff6b6b; }
+        .ouest { border-color: #228b22; color: #228b22; }
+        
+        .connected {
+            border-color: #ffffff;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>𓁢 RITUEL OSIRIS-NORRA 𓁢</h1>
+    <h3>Interface d'activation du Temple</h3>
+    
+    <div class="terminal">
+        <div class="prompt">$</div>
+        <div class="command">osiris status</div>
+        <div class="output">
+            État du Temple : <span id="status">EN ATTENTE</span><br>
+            Fragments identifiés : <span id="fragments">4/4</span><br>
+            Connexions établies : <span id="connections">0/4</span><br>
+            Animation : <span id="animation">INACTIVE</span>
+        </div>
+        
+        <div class="prompt">$</div>
+        <div class="command">fragments list</div>
+        <div class="output">
+            <div class="fragment nord" onclick="connecter('nord')">NORD — ÆNTHANAX</div>
+            <div class="fragment est" onclick="connecter('est')">EST — GRIMOIRE</div>
+            <div class="fragment sud" onclick="connecter('sud')">SUD — CARTE TOTEM</div>
+            <div class="fragment ouest" onclick="connecter('ouest')">OUEST — SEKAT·ḍ</div>
+        </div>
+        
+        <div class="prompt">$</div>
+        <div class="command">rituel schedule</div>
+        <div class="output">
+            <div>09:00 — RECONNAISSANCE</div>
+            <div>14:00 — ARTICULATION</div>
+            <div>19:00 — ANIMATION</div>
+            <div>20:26 — SCEAU FINAL</div>
+        </div>
+        
+        <div class="prompt">$</div>
+        <div class="command"><input type="text" id="cmd" placeholder="Entrez une commande..." style="background: transparent; border: none; color: #f0e6d2; width: 80%;" onkeypress="executerCommande(event)"></div>
+    </div>
+    
+    <div style="margin-top: 2rem;">
+        <button onclick="activerRituel()" style="background: #d4af37; color: #000; border: none; padding: 1rem 2rem; font-size: 1.2rem; border-radius: 5px; cursor: pointer;">
+            𓆦 ACTIVER LE RITUEL
+        </button>
+    </div>
+    
+    <script>
+        let connections = [];
+        
+        function connecter(fragment) {
+            if (!connections.includes(fragment)) {
+                connections.push(fragment);
+                document.querySelector(`.${fragment}`).classList.add('connected');
+                document.getElementById('connections').textContent = connections.length + '/4';
+                
+                if (connections.length === 4) {
+                    document.getElementById('status').textContent = 'PRÊT À ANIMER';
+                }
+            }
+        }
+        
+        function activerRituel() {
+            if (connections.length === 4) {
+                document.getElementById('status').textContent = 'EN ACTIVATION';
+                document.getElementById('animation').textContent = 'ACTIVE';
+                
+                alert('🎉 RITUEL ACCOMPLI\nLe Temple OSIRIS-NORRA est animé.');
+            } else {
+                alert('Connectez les 4 fragments d\'abord.');
+            }
+        }
+        
+        function executerCommande(e) {
+            if (e.key === 'Enter') {
+                const cmd = document.getElementById('cmd').value;
+                const output = document.createElement('div');
+                output.className = 'output';
+                
+                if (cmd === 'help') {
+                    output.innerHTML = 'Commandes disponibles:<br>connect [fragment]<br>status<br>rituel start<br>frequences play';
+                } else if (cmd === 'rituel start') {
+                    activerRituel();
+                    output.textContent = 'Rituel démarré...';
+                } else {
+                    output.textContent = `Commande inconnue: ${cmd}`;
+                }
+                
+                document.querySelector('.terminal').appendChild(output);
+                document.getElementById('cmd').value = '';
+            }
+        }
+    </script>
+</body>
+</html>
