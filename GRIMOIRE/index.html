@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>GRIMOIRE VIVANT — OSIRIS-NORRA</title>
+    <style>
+        :root {
+            --noir-profond: #0a0a0a;
+            --or-ancien: #D4AF37;
+            --blanc-sacré: #F5F5F5;
+            --parchemin: #F5F2EC;
+        }
+        
+        body {
+            background: var(--noir-profond);
+            color: var(--parchemin);
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .sceau {
+            text-align: center;
+            margin: 3rem 0;
+            font-size: 4rem;
+            color: var(--or-ancien);
+            animation: pulse 4s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+        
+        .titre {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--or-ancien);
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 1rem;
+        }
+        
+        .chapitre {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid var(--or-ancien);
+            border-radius: 5px;
+        }
+        
+        .chapitre-titre {
+            color: var(--or-ancien);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .loi {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .loi-numero {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: var(--or-ancien);
+            color: var(--noir-profond);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .citation {
+            font-style: italic;
+            text-align: center;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            color: var(--or-ancien);
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--or-ancien);
+            border: 1px solid var(--or-ancien);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="sceau">𓂀</div>
+    
+    <h1 class="titre">GRIMOIRE VIVANT</h1>
+    <h2 style="text-align: center; color: #aaa; margin-bottom: 3rem;">
+        OSIRIS-NORRA — Reconstitution Intégrale
+    </h2>
+    
+    <div class="citation">
+        "Ce que tu portes est déjà en mouvement.<br>
+        Ce que tu cherches est déjà trouvé.<br>
+        Ce que tu bâtis est déjà debout."
+    </div>
+    
+    <div class="chapitre">
+        <h3 class="chapitre-titre">𓁢 LE PRINCIPE OSIRIS</h3>
+        
+        <div class="loi">
+            <div class="loi-numero">1</div>
+            <p><strong>RECONNAÎTRE</strong> — Je ne construis pas. Je reconnais ce qui est déjà bâti.</p>
+        </div>
+        
+        <div class="loi">
+            <div class="loi-numero">2</div>
+            <p><strong>RASSEMBLER</strong> — Je ne cherche pas. Je rassemble ce qui est dispersé.</p>
+        </div>
+        
+        <div class="loi">
+            <div class="loi-numero">3</div>
+            <p><strong>ARTICULER</strong> — Je ne relie pas au hasard. J'articule par fonction.</p>
+        </div>
+        
+        <div class="loi">
+            <div class="loi-numero">4</div>
+            <p><strong>ANIMER</strong> — Je ne donne pas vie à du mort. J'anime ce qui attend le souffle.</p>
+        </div>
+    </div>
+    
+    <div class="chapitre">
+        <h3 class="chapitre-titre">🧩 LES QUATRE FRAGMENTS</h3>
+        
+        <p><strong>𓃭 NORD — ÆNTHANAX</strong><br>
+        Flux numérique. Architecture pyramidale vivante. Système nerveux du Temple.</p>
+        
+        <p><strong>𓂀 EST — GRIMOIRE</strong><br>
+        Flux spirituel. Textes sacrés, lois d'or. Cœur-mémoire du Temple.</p>
+        
+        <p><strong>𓋹 SUD — CARTE TOTEM</strong><br>
+        Flux humain. Ponts entre mondes. Corps reconstitué du Temple.</p>
+        
+        <p><strong>𓍝 OUEST — SEKAT·ḍ</strong><br>
+        Flux matériel. Rituels d'articulation. Rituel de liaison du Temple.</p>
+    </div>
+    
+    <div class="chapitre">
+        <h3 class="chapitre-titre">⏳ LE RITUEL DU 4 JANVIER 2026</h3>
+        
+        <p><strong>09:00 — RECONNAISSANCE</strong><br>
+        Ouverture des quatre fragments. Phrases de liaison.</p>
+        
+        <p><strong>14:00 — ARTICULATION</strong><br>
+        Mise en ligne du Temple. Activation d'OSIRISE.</p>
+        
+        <p><strong>19:00 — ANIMATION</strong><br>
+        Navigation complète. Fréquences 432/528/639 Hz.</p>
+        
+        <p><strong>20:26 — SCEAU FINAL</strong><br>
+        Commit ultime : "OSIRIS-NORRA — Reconstitution intégrale — Genève Libellules"</p>
+    </div>
+    
+    <div class="navigation">
+        <a href="../index.html" class="btn">𓁢 Retour au Portail</a>
+        <a href="../RITUEL/index.html" class="btn">⚡ Activer le Rituel</a>
+        <a href="../FRAGMENTS/" class="btn">🧩 Explorer les Fragments</a>
+    </div>
+    
+    <footer style="text-align: center; margin-top: 4rem; color: #666; font-size: 0.9rem;">
+        <p>GRIMOIRE VIVANT — OSIRIS-NORRA</p>
+        <p>Genève Libellules — 2026</p>
+        <p>« Le Temple n'est pas à construire, mais à reconnaître. »</p>
+    </footer>
+</body>
+</html>
