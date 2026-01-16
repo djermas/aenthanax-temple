@@ -1,13 +1,3 @@
-/* --- FOOTER --- */
-
-.temple-footer {
-  margin-top: 60px;
-  padding: 20px 0;
-  border-top: 1px solid #444;
-  text-align: center;
-  color: #aaa;
-  font-size: 0.9rem;
-}
 
 /* --- MENU RESPONSIVE --- */
 
@@ -455,4 +445,75 @@ body {
     .modules-grid {
         grid-template-columns: 1fr;
     }
+}
+/* --- STYLE GLOBAL ÉLÉGANT --- */
+
+body {
+  background: #0b0b0d;
+  color: #e8e3d9;
+  font-family: "Inter", sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: "Inter", sans-serif;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+a {
+  color: #d8c48c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Conteneurs */
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* Cartes */
+.card {
+  background: #111;
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background: #1a1a1d;
+  transform: translateY(-3px);
+}
+
+/* Navigation */
+.temple-nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 15px 20px;
+  margin: 0;
+  border-bottom: 1px solid #333;
+  background: #0f0f12;
+}
+
+.temple-nav a {
+  font-weight: 500;
+}
+
+/* Footer */
+.temple-footer {
+  margin-top: 60px;
+  padding: 20px 0;
+  border-top: 1px solid #333;
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
 }
