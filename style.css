@@ -1,3 +1,36 @@
+
+
+/* --- FRAGMENTS PAGE --- */
+
+.page-fragments {
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+  color: #f0e6d2;
+}
+
+.fragments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.fragment-card {
+  border: 1px solid #444;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  color: #f0e6d2;
+  background: #111;
+  transition: 0.3s;
+}
+
+.fragment-card:hover {
+  background: #222;
+  transform: translateY(-4px);
+}
+
 /* ===== VARIABLES SACRÉES ===== */
 :root {
     /* Couleurs du Temple */
