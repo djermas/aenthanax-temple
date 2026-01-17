@@ -1,3 +1,26 @@
+
+.carte-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.carte-item {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid #333;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  transition: 0.3s;
+}
+
+.carte-item:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-4px);
+}
+
 /* --- FOOTER --- */
 
 .temple-footer {
