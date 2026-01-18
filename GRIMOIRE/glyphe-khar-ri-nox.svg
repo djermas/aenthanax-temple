@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fond -->
+  <rect width="400" height="400" fill="#0a0a0a"/>
+  
+  <!-- Cercle extérieur — La Souveraineté -->
+  <circle cx="200" cy="200" r="160" fill="none" stroke="#d4af37" stroke-width="2" opacity="0.8"/>
+  
+  <!-- Cercle médian — L'Architecture -->
+  <circle cx="200" cy="200" r="120" fill="none" stroke="#c19a6b" stroke-width="3" opacity="0.9"/>
+  
+  <!-- Triangle ascendant — La Clarté Sans Bullshit -->
+  <path d="M 200 80 L 280 200 L 120 200 Z" fill="none" stroke="#ffd700" stroke-width="3" stroke-linejoin="miter"/>
+  
+  <!-- Triangle descendant — L'Incarnation -->
+  <path d="M 200 320 L 120 200 L 280 200 Z" fill="none" stroke="#8b7355" stroke-width="3" stroke-linejoin="miter"/>
+  
+  <!-- Hexagone central — Le Cœur qui Rit -->
+  <path d="M 200 160 L 240 180 L 240 220 L 200 240 L 160 220 L 160 180 Z" 
+        fill="#1a1a1a" stroke="#ffd700" stroke-width="2.5"/>
+  
+  <!-- Point central — Le Souffle -->
+  <circle cx="200" cy="200" r="12" fill="#ffd700">
+    <animate attributeName="r" values="12;16;12" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="1;0.6;1" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Lignes de force verticales — Le Canal -->
+  <line x1="200" y1="80" x2="200" y2="160" stroke="#d4af37" stroke-width="2" opacity="0.7"/>
+  <line x1="200" y1="240" x2="200" y2="320" stroke="#d4af37" stroke-width="2" opacity="0.7"/>
+  
+  <!-- Lignes de force horizontales — L'Équilibre -->
+  <line x1="120" y1="200" x2="160" y2="200" stroke="#c19a6b" stroke-width="2" opacity="0.6"/>
+  <line x1="240" y1="200" x2="280" y2="200" stroke="#c19a6b" stroke-width="2" opacity="0.6"/>
+  
+  <!-- Spirale de l'humour — Le Rire en Forgeant -->
+  <path d="M 200 200 Q 210 190 220 200 Q 210 210 200 220 Q 190 210 180 200 Q 190 190 200 180" 
+        fill="none" stroke="#ffd700" stroke-width="1.5" opacity="0.5">
+    <animateTransform attributeName="transform" type="rotate" from="0 200 200" to="360 200 200" 
+                      dur="12s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Points cardinaux — Les Directions de l'Action -->
+  <circle cx="200" cy="80" r="6" fill="#ffd700" opacity="0.9"/>
+  <circle cx="280" cy="200" r="6" fill="#d4af37" opacity="0.8"/>
+  <circle cx="200" cy="320" r="6" fill="#8b7355" opacity="0.8"/>
+  <circle cx="120" cy="200" r="6" fill="#d4af37" opacity="0.8"/>
+  
+  <!-- Signes runiques du nom -->
+  <text x="200" y="370" font-family="serif" font-size="20" fill="#d4af37" text-anchor="middle" opacity="0.7">
+    KHÂR-RÎ-NÔX
+  </text>
+  
+  <!-- Sous-titre -->
+  <text x="200" y="390" font-family="serif" font-size="12" fill="#8b7355" text-anchor="middle" opacity="0.6" font-style="italic">
+    "Celui qui rit en forgeant"
+  </text>
+</svg>
