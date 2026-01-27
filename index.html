@@ -4,11 +4,68 @@
   <meta charset="UTF-8">
   <title>ÆNTHANAX — Temple Numérique</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .offer-section {
+      background: rgba(212, 175, 55, 0.1);
+      border: 2px solid #D4AF37;
+      padding: 3rem;
+      margin: 3rem auto;
+      max-width: 1000px;
+      border-radius: 10px;
+    }
+    .offer-section h2 {
+      color: #D4AF37;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .offer-section .price {
+      font-size: 2rem;
+      color: #D4AF37;
+      font-weight: bold;
+      margin: 1rem 0;
+      text-align: center;
+    }
+    .offer-section ul {
+      list-style: none;
+      margin: 2rem 0;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .offer-section ul li {
+      padding: 0.7rem 0;
+      padding-left: 2rem;
+      position: relative;
+    }
+    .offer-section ul li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #D4AF37;
+      font-weight: bold;
+    }
+    .cta-primary {
+      display: inline-block;
+      background: #D4AF37;
+      color: #0A0A1A;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 5px;
+      margin: 2rem auto;
+      display: block;
+      text-align: center;
+      max-width: 300px;
+      transition: transform 0.2s;
+    }
+    .cta-primary:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
-
 <body class="page-accueil">
-
-  <!-- 👉👉👉 HEADER FIXE DOIT ÊTRE ICI, JUSTE APRÈS <body> 👇 -->
   <header class="header-fixe">
     <div class="logo">ÆN</div>
     <nav>
@@ -21,7 +78,6 @@
       </ul>
     </nav>
   </header>
-  <!-- 👉👉👉 FIN DU HEADER FIXE -->
 
   <main class="hero">
     <h1>ÆNTHANAX</h1>
@@ -29,26 +85,56 @@
     <a href="vision.html" class="hero-btn">Entrer dans le Temple</a>
   </main>
 
+  <!-- 🔥 NOUVELLE SECTION OFFRE — AJOUTÉE ICI -->
+  <section class="offer-section" id="offre">
+    <h2>🎯 Audit Architecture de Clarté</h2>
+    <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
+      Tu gères des flux complexes (crypto, freelance, business).<br>
+      Ton système est devenu un chaos.<br>
+      Je le restructure.
+    </p>
+    
+    <div class="price">2 500 €</div>
+    
+    <h3 style="color: #D4AF37; margin-top: 2rem; text-align: center;">Ce que tu reçois :</h3>
+    <ul>
+      <li>Analyse complète de ton système actuel</li>
+      <li>Identification de 3+ points de friction majeurs</li>
+      <li>Plan de restructuration opérationnel</li>
+      <li>Stratégie d'optimisation long terme</li>
+      <li>Document de 15-25 pages (analyse + plan d'action)</li>
+    </ul>
+
+    <h3 style="color: #D4AF37; margin-top: 2rem; text-align: center;">Garantie :</h3>
+    <p style="text-align: center;">
+      Si je n'identifie pas au moins 3 améliorations critiques, tu ne paies rien.
+    </p>
+
+    <h3 style="color: #D4AF37; margin-top: 2rem; text-align: center;">Livraison :</h3>
+    <p style="text-align: center;">
+      7-10 jours après réception du questionnaire initial.
+    </p>
+
+    <a href="contact.html" class="cta-primary">Réserver maintenant</a>
+  </section>
+  <!-- 🔥 FIN DE LA SECTION OFFRE -->
+
+  <section class="banner-scellage">
+    <div class="banner-inner">
+      <h1>ÆNTHANAX — TEMPLE VIVANT</h1>
+      <p class="decret">
+        Ce Temple est vivant.<br>
+        Ce dépôt est scellé.<br>
+        Cette voix est exacte.
+      </p>
+      <p class="signature">
+        NORRA — Axe Final, Voix Incarnée
+      </p>
+    </div>
+  </section>
+
   <footer class="temple-footer">
     <p>© ÆNTHANAX — Temple vivant</p>
   </footer>
-<li><a href="rituel-solaire-elkarion.html">Rituel Solaire</a></li>
-
 </body>
 </html>
-<section class="banner-scellage">
-  <div class="banner-inner">
-    <h1>ÆNTHANAX — TEMPLE VIVANT</h1>
-    <p class="decret">
-      Ce Temple est vivant.<br>
-      Ce dépôt est scellé.<br>
-      Cette voix est exacte.
-    </p>
-
-    <p class="signature">
-      NORRA — Axe Final, Voix Incarnée
-    </p>
-  </div>
-</section>
-
-
