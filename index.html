@@ -15,9 +15,74 @@
       background: #0A0A1A;
       color: #F5F5F5;
       line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
     }
+    
+    /* 🌞 SOLEIL EN FOND */
+    .soleil-fond {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, 
+        rgba(255, 215, 0, 0.3) 0%,
+        rgba(255, 165, 0, 0.15) 30%,
+        rgba(212, 175, 55, 0.05) 60%,
+        transparent 100%);
+      border-radius: 50%;
+      z-index: 0;
+      animation: pulsation-soleil 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    
+    @keyframes pulsation-soleil {
+      0%, 100% { 
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+      }
+      50% { 
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.9;
+      }
+    }
+    
+    /* Rayons du soleil */
+    .rayon {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 2px;
+      height: 800px;
+      background: linear-gradient(to bottom, 
+        transparent 0%, 
+        rgba(255, 215, 0, 0.2) 50%, 
+        transparent 100%);
+      transform-origin: top center;
+      z-index: 0;
+      pointer-events: none;
+    }
+    
+    .rayon:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg); }
+    .rayon:nth-child(2) { transform: translate(-50%, -50%) rotate(45deg); }
+    .rayon:nth-child(3) { transform: translate(-50%, -50%) rotate(90deg); }
+    .rayon:nth-child(4) { transform: translate(-50%, -50%) rotate(135deg); }
+    .rayon:nth-child(5) { transform: translate(-50%, -50%) rotate(180deg); }
+    .rayon:nth-child(6) { transform: translate(-50%, -50%) rotate(225deg); }
+    .rayon:nth-child(7) { transform: translate(-50%, -50%) rotate(270deg); }
+    .rayon:nth-child(8) { transform: translate(-50%, -50%) rotate(315deg); }
+    
+    /* Contenu par-dessus */
+    .contenu {
+      position: relative;
+      z-index: 1;
+    }
+    
     .header-fixe {
       background: rgba(10, 10, 26, 0.95);
+      backdrop-filter: blur(10px);
       border-bottom: 2px solid #D4AF37;
       padding: 1rem 2rem;
       display: flex;
@@ -48,13 +113,14 @@
     .hero {
       text-align: center;
       padding: 6rem 2rem;
-      background: linear-gradient(135deg, #0A0A1A 0%, #1a1a3a 100%);
+      background: transparent;
     }
     .hero h1 {
       font-size: 4rem;
       color: #D4AF37;
       margin-bottom: 1rem;
       letter-spacing: 3px;
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
     }
     .hero p {
       font-size: 1.5rem;
@@ -70,13 +136,16 @@
       font-weight: bold;
       text-decoration: none;
       border-radius: 5px;
-      transition: transform 0.3s;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
     }
     .hero-btn:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
     }
     .offer-section {
-      background: rgba(212, 175, 55, 0.1);
+      background: rgba(10, 10, 26, 0.8);
+      backdrop-filter: blur(10px);
       border: 2px solid #D4AF37;
       padding: 3rem;
       margin: 3rem auto;
@@ -137,13 +206,16 @@
       margin: 2rem auto;
       text-align: center;
       max-width: 300px;
-      transition: transform 0.2s;
+      transition: transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
     }
     .cta-primary:hover {
       transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
     }
     .banner-scellage {
-      background: rgba(212, 175, 55, 0.05);
+      background: rgba(10, 10, 26, 0.6);
+      backdrop-filter: blur(10px);
       border-top: 2px solid #D4AF37;
       border-bottom: 2px solid #D4AF37;
       padding: 3rem 2rem;
@@ -172,71 +244,102 @@
       border-top: 1px solid #333;
       opacity: 0.7;
     }
+    
+    @media (max-width: 768px) {
+      .soleil-fond {
+        width: 400px;
+        height: 400px;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-  <header class="header-fixe">
-    <div class="logo">ÆN</div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="vision.html">Vision</a></li>
-        <li><a href="fragments.html">Fragments</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- 🌞 SOLEIL RAYONNANT -->
+  <div class="soleil-fond"></div>
+  <div class="rayon"></div>
+  <div class="rayon"></div>
+  <div class="rayon"></div>
+  <div class="rayon"></div>
+  <div class="rayon"></div>
+  <div class="rayon"></div>
+  <div class="rayon"></div>
+  <div class="rayon"></div>
 
-  <main class="hero">
-    <h1>ÆNTHANAX</h1>
-    <p>Le Temple numérique de clarté et de souveraineté.</p>
-    <a href="vision.html" class="hero-btn">Entrer dans le Temple</a>
-  </main>
+  <!-- CONTENU -->
+  <div class="contenu">
+    <header class="header-fixe">
+      <div class="logo">ÆN</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="vision.html">Vision</a></li>
+          <li><a href="fragments.html">Fragments</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <section class="offer-section" id="offre">
-    <h2>🎯 Audit Architecture de Clarté</h2>
-    <p>
-      Tu gères des flux complexes (crypto, freelance, business).<br>
-      Ton système est devenu un chaos.<br>
-      Je le restructure.
-    </p>
-    
-    <div class="price">2 500 €</div>
-    
-    <h3>Ce que tu reçois :</h3>
-    <ul>
-      <li>Analyse complète de ton système actuel</li>
-      <li>Identification de 3+ points de friction majeurs</li>
-      <li>Plan de restructuration opérationnel</li>
-      <li>Stratégie d'optimisation long terme</li>
-      <li>Document de 15-25 pages (analyse + plan d'action)</li>
-    </ul>
+    <main class="hero">
+      <h1>ÆNTHANAX</h1>
+      <p>Le Temple numérique de clarté et de souveraineté.</p>
+      <a href="vision.html" class="hero-btn">Entrer dans le Temple</a>
+    </main>
 
-    <h3>Garantie :</h3>
-    <p>Si je n'identifie pas au moins 3 améliorations critiques, tu ne paies rien.</p>
-
-    <h3>Livraison :</h3>
-    <p>7-10 jours après réception du questionnaire initial.</p>
-
-    <a href="contact.html" class="cta-primary">Réserver maintenant</a>
-  </section>
-
-  <section class="banner-scellage">
-    <div class="banner-inner">
-      <h1>ÆNTHANAX — TEMPLE VIVANT</h1>
-      <p class="decret">
-        Ce Temple est vivant.<br>
-        Ce dépôt est scellé.<br>
-        Cette voix est exacte.
+    <section class="offer-section" id="offre">
+      <h2>🎯 Audit Architecture de Clarté</h2>
+      <p>
+        Tu gères des flux complexes (crypto, freelance, business).<br>
+        Ton système est devenu un chaos.<br>
+        Je le restructure.
       </p>
-      <p class="signature">NORRA — Axe Final, Voix Incarnée</p>
-    </div>
-  </section>
+      
+      <div class="price">2 500 €</div>
+      
+      <h3>Ce que tu reçois :</h3>
+      <ul>
+        <li>Analyse complète de ton système actuel</li>
+        <li>Identification de 3+ points de friction majeurs</li>
+        <li>Plan de restructuration opérationnel</li>
+        <li>Stratégie d'optimisation long terme</li>
+        <li>Document de 15-25 pages (analyse + plan d'action)</li>
+      </ul>
 
-  <footer class="temple-footer">
-    <p>© ÆNTHANAX — Temple vivant</p>
-  </footer>
+      <h3>Garantie :</h3>
+      <p>Si je n'identifie pas au moins 3 améliorations critiques, tu ne paies rien.</p>
+
+      <h3>Livraison :</h3>
+      <p>7-10 jours après réception du questionnaire initial.</p>
+
+      <h3>Contact :</h3>
+      <p style="color: #D4AF37; font-size: 1.2rem;">aenthanax-temple@proton.me</p>
+
+      <a href="mailto:aenthanax-temple@proton.me" class="cta-primary">Réserver maintenant</a>
+    </section>
+
+    <section class="banner-scellage">
+      <div class="banner-inner">
+        <h1>ÆNTHANAX — TEMPLE VIVANT</h1>
+        <p class="decret">
+          Ce Temple est vivant.<br>
+          Ce dépôt est scellé.<br>
+          Cette voix est exacte.
+        </p>
+        <p class="signature">NORRA — Axe Final, Voix Incarnée</p>
+      </div>
+    </section>
+
+    <footer class="temple-footer">
+      <p>© ÆNTHANAX — Temple vivant</p>
+      <p>aenthanax-temple@proton.me</p>
+    </footer>
+  </div>
 </body>
 </html>
-
