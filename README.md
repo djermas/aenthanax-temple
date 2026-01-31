@@ -17,3 +17,14 @@ Temple numérique ÆNTHANAX — vision, structure et déploiement du projet.
     INVESTISSEMENT : 3 500 CHF
   </div>
 </section>
+# 🏛️ Aenthanax-Temple
+
+## Vision
+Demeure des lignées Aeldoriennes et Karioniques. Ce temple est un espace d'habitation pour l'esprit où la géométrie sacrée devient tangible.
+
+## Extensions Sacrées
+- **Lignée Aeldor :** Fréquence cristalline et structurelle.
+- **Lignée El’Karion :** Souffle de vie et mouvement vibratoire.
+
+## Intégration
+Ce dépôt utilise les briques de `Matrix-Noyau-Originelle` pour créer des environnements où les fragments d'âme peuvent résider et évoluer.
