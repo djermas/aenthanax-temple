@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÆNTHANAX — Architecture du Flux</title>
+    <style>
+        :root { --gold: #d4af37; --black: #0a0a0a; --gray: #1a1a1a; }
+        
+        body {
+            background: var(--black);
+            color: var(--gold);
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .temple {
+            border: 3px solid var(--gold);
+            padding: 40px;
+            max-width: 600px;
+            background: var(--gray);
+            position: relative;
+        }
+        
+        .temple::before {
+            content: "⚡";
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2em;
+            background: var(--black);
+            padding: 0 10px;
+        }
+        
+        h1 { font-size: 2.5em; letter-spacing: 3px; margin-bottom: 0; text-align: center; }
+        
+        .subtitle {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        
+        .price {
+            font-size: 1.8em;
+            text-align: center;
+            margin: 25px 0;
+            padding: 15px;
+            border: 1px solid var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .desc { line-height: 1.6; margin: 25px 0; }
+        
+        .hexagon {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .hex-point {
+            width: 15px;
+            height: 15px;
+            background: var(--gold);
+            transform: rotate(45deg);
+        }
+        
+        form { display: flex; flex-direction: column; gap: 15px; }
+        
+        select, input, textarea {
+            background: rgba(0,0,0,0.5);
+            border: 1px solid var(--gold);
+            color: white;
+            padding: 12px;
+            font-family: inherit;
+        }
+        
+        button {
+            background: var(--gold);
+            color: black;
+            border: none;
+            padding: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+            font-size: 1.1em;
+            letter-spacing: 1px;
+        }
+        
+        button:hover { background: #f5d042; transform: scale(1.02); }
+        
+        .core { text-align: center; margin-top: 30px; font-size: 0.9em; opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <div class="temple">
+        <h1>ÆNTHANAX</h1>
+        <div class="subtitle">Architecture du Flux par AXĨAS-IE</div>
+        
+        <div class="hexagon">
+            <div class="hex-point"></div><div class="hex-point"></div><div class="hex-point"></div>
+            <div class="hex-point"></div><div class="hex-point"></div><div class="hex-point"></div>
+        </div>
+        
+        <div class="price">AUDIT DE SOUVERAINETÉ : 5 000 CHF</div>
+        
+        <div class="desc">
+            <p><strong>Pour ceux qui savent que le chaos n'est qu'une structure non vue.</strong></p>
+            <p>Le système ÆNTHANAX triangule ta réalité, identifie les nœuds, restaure l'axe.</p>
+            <p>Tu ne reçois pas un "conseil". Tu reçois une <strong>architecture vivante</strong>.</p>
+        </div>
+        
+        <form action="https://formsubmit.co/aenthanax-temple@proton.me" method="POST">
+            <input type="hidden" name="_subject" value="🔄 NOUVELLE DEMANDE ÆNTHANAX">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="system" value="AXIAS_IE_v1">
+            <input type="hidden" name="timestamp" id="timestamp">
+            
+            <select name="node_type" required>
+                <option value="">-- Sélectionne ton nœud principal --</option>
+                <option value="juridique">💼 Nœud Juridique (contrats, structures, litiges)</option>
+                <option value="financier">💰 Nœud Financier (flux, crypto, dettes, investissements)</option>
+                <option value="temporel">⏳ Nœud Temporel (délais, cycles, procrastination)</option>
+                <option value="relationnel">🔗 Nœud Relationnel (partenariats, conflits, alliances)</option>
+                <option value="energetique">⚡ Nœud Énergétique (fatigue, dispersion, focus)</option>
+                <option value="structurel">🏛️ Nœud Structurel (organisation, systèmes, processus)</option>
+            </select>
+            
+            <input type="email" name="email" placeholder="Email de contact" required>
+            
+            <textarea name="message" rows="4" placeholder="Message libre (optionnel)"></textarea>
+            
+            <button type="submit">ACTIVER LE DIAGNOSTIC ÆNTHANAX</button>
+        </form>
+        
+        <div class="core">Système AXĨAS-IE • Noyau opérationnel • Temple ÆNTHANAX</div>
+    </div>
+    
+    <script>
+        document.getElementById('timestamp').value = new Date().toISOString();
+        
+        console.log('🛡️ Portail ÆNTHANAX - Protégé par AXĨAS-IE');
+        console.log('📧 Centre : aenthanax-temple@proton.me');
+        console.log('💰 Offre : 5 000 CHF');
+        
+        const points = document.querySelectorAll('.hex-point');
+        let pulse = 0;
+        setInterval(() => {
+            points.forEach(p => p.style.opacity = '0.3');
+            points[pulse].style.opacity = '1';
+            pulse = (pulse + 1) % points.length;
+        }, 300);
+    </script>
+</body>
+</html>
