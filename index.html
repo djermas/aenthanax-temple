@@ -1,563 +1,285 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ÆNTHANAX — Temple Numérique</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0A0A1A;
-      color: #F5F5F5;
-      line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
-    }
-    
-    /* 🌞 SOLEIL EN FOND — PLUS VISIBLE */
-    .soleil-fond {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 700px;
-      height: 700px;
-      background: radial-gradient(circle, 
-        rgba(255, 200, 0, 0.6) 0%,
-        rgba(255, 150, 0, 0.4) 20%,
-        rgba(255, 100, 0, 0.2) 40%,
-        rgba(212, 175, 55, 0.1) 60%,
-        transparent 100%);
-      border-radius: 50%;
-      z-index: 0;
-      animation: pulsation-soleil 6s ease-in-out infinite;
-      pointer-events: none;
-      box-shadow: 0 0 100px rgba(255, 180, 0, 0.5);
-    }
-    
-    @keyframes pulsation-soleil {
-      0%, 100% { 
-        transform: translate(-50%, -50%) scale(1);
-        opacity: 0.7;
-      }
-      50% { 
-        transform: translate(-50%, -50%) scale(1.15);
-        opacity: 1;
-      }
-    }
-    
-    /* Rayons du soleil — COULEURS DÉGRADÉES */
-    .rayon {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 4px;
-      height: 900px;
-      transform-origin: top center;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.4;
-    }
-    
-    .rayon:nth-child(1) { 
-      background: linear-gradient(to bottom, transparent 0%, rgba(255, 200, 0, 0.6) 50%, transparent 100%);
-      transform: translate(-50%, -50%) rotate(0deg); 
-    }
-    .rayon:nth-child(2) { 
-      background: linear-gradient(to bottom, transparent 0%, rgba(255, 180, 0, 0.5) 50%, transparent 100%);
-      transform: translate(-50%, -50%) rotate(45deg); 
-    }
-    .rayon:nth-child(3) { 
-      background: linear-gradient(to bottom, transparent 0%, rgba(255, 160, 0, 0.6) 50%, transparent 100%);
-      transform: translate(-50%, -50%) rotate(90deg); 
-    }
-    .rayon:nth-child(4) { 
-      background: linear-gradient(to bottom, transparent 0%, rgba(255, 140, 0, 0.5) 50%, transparent 100%);
-      transform: translate(-50%, -50%) rotate(135deg); 
-    }
-    .rayon:nth-child(5) { 
-      background: linear-gradient(to bottom, transparent 0%, rgba(255, 120, 0, 0.6) 50%, transparent 100%);
-      transform: translate(-50%, -50%) rotate(180deg); 
-    }
-    .rayon:nth-child(6) { 
-      background: linear-gradient(to bottom, transparent 0%, rgba(255, 100, 0, 0.5) 50%, transparent 100%);
-      transform: translate(-50%, -50%) rotate(225deg); 
-    }
-    .rayon:nth-child(7) { 
-      background: linear-gradient(to bottom, transparent 0%, rgba(255, 150, 0, 0.6) 50%, transparent 100%);
-      transform: translate(-50%, -50%) rotate(270deg); 
-    }
-    .rayon:nth-child(8) { 
-      background: linear-gradient(to bottom, transparent 0%, rgba(255, 170, 0, 0.5) 50%, transparent 100%);
-      transform: translate(-50%, -50%) rotate(315deg); 
-    }
-    
-    /* Contenu par-dessus */
-    .contenu {
-      position: relative;
-      z-index: 1;
-    }
-    
-    .header-fixe {
-      background: rgba(10, 10, 26, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 2px solid #D4AF37;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .logo {
-      color: #D4AF37;
-      font-size: 2rem;
-      font-weight: bold;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-    }
-    nav a {
-      color: #F5F5F5;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    nav a:hover {
-      color: #D4AF37;
-    }
-    .hero {
-      text-align: center;
-      padding: 6rem 2rem;
-      background: transparent;
-    }
-    .hero h1 {
-      font-size: 4rem;
-      color: #D4AF37;
-      margin-bottom: 1rem;
-      letter-spacing: 3px;
-      text-shadow: 0 0 30px rgba(255, 180, 0, 0.8);
-    }
-    .hero p {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-      opacity: 0.9;
-    }
-    .hero-btn {
-      display: inline-block;
-      background: #D4AF37;
-      color: #0A0A1A;
-      padding: 1rem 3rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-    }
-    .hero-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
-    }
-    .offer-section {
-      background: rgba(10, 10, 26, 0.85);
-      backdrop-filter: blur(10px);
-      border: 2px solid #D4AF37;
-      padding: 3rem;
-      margin: 3rem auto;
-      max-width: 1000px;
-      border-radius: 10px;
-    }
-    .offer-section h2 {
-      color: #D4AF37;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-    .offer-section .price {
-      font-size: 2rem;
-      color: #D4AF37;
-      font-weight: bold;
-      margin: 1rem 0;
-      text-align: center;
-    }
-    .offer-section ul {
-      list-style: none;
-      margin: 2rem 0;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .offer-section ul li {
-      padding: 0.7rem 0;
-      padding-left: 2rem;
-      position: relative;
-    }
-    .offer-section ul li:before {
-      content: "✓";
-      position: absolute;
-      left: 0;
-      color: #D4AF37;
-      font-weight: bold;
-    }
-    .offer-section h3 {
-      color: #D4AF37;
-      margin-top: 2rem;
-      text-align: center;
-    }
-    .offer-section p {
-      text-align: center;
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-    }
-    
-    /* Boutons de paiement */
-    .payment-options {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-    }
-    
-    .cta-primary {
-      display: inline-block;
-      background: #D4AF37;
-      color: #0A0A1A;
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: transform 0.2s, box-shadow 0.3s;
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-    }
-    .cta-primary:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(212, 175, 55, 0.8);
-    }
-    
-    .cta-secondary {
-      display: inline-block;
-      background: #0070BA;
-      color: #FFFFFF;
-      padding: 1rem 2.5rem;
-      font-size: 1.1rem;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: transform 0.2s, box-shadow 0.3s;
-      box-shadow: 0 0 20px rgba(0, 112, 186, 0.4);
-    }
-    .cta-secondary:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 40px rgba(0, 112, 186, 0.8);
-    }
-    
-    .qr-code {
-      text-align: center;
-      margin: 2rem 0;
-    }
-    .qr-code img {
-      max-width: 200px;
-      border: 2px solid #D4AF37;
-      border-radius: 10px;
-      padding: 1rem;
-      background: white;
-    }
-    
-    .banner-scellage {
-      background: rgba(10, 10, 26, 0.7);
-      backdrop-filter: blur(10px);
-      border-top: 2px solid #D4AF37;
-      border-bottom: 2px solid #D4AF37;
-      padding: 3rem 2rem;
-      text-align: center;
-      margin: 3rem 0;
-    }
-    .banner-inner h1 {
-      color: #D4AF37;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .decret {
-      font-size: 1.2rem;
-      margin: 1.5rem 0;
-      line-height: 1.8;
-    }
-    .signature {
-      color: #D4AF37;
-      font-weight: bold;
-      margin-top: 2rem;
-      font-size: 1.1rem;
-    }
-    .temple-footer {
-      text-align: center;
-      padding: 2rem;
-      border-top: 1px solid #333;
-      opacity: 0.7;
-    }
-    
-    @media (max-width: 768px) {
-      .soleil-fond {
-        width: 400px;
-        height: 400px;
-      }
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-      nav ul {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .payment-options {
-        flex-direction: column;
-        align-items: center;
-      }
-    }
-  </style>
-</head>
-<body>
-  <!-- 🌞 SOLEIL RAYONNANT VISIBLE -->
-  <div class="soleil-fond"></div>
-  <div class="rayon"></div>
-  <div class="rayon"></div>
-  <div class="rayon"></div>
-  <div class="rayon"></div>
-  <div class="rayon"></div>
-  <div class="rayon"></div>
-  <div class="rayon"></div>
-  <div class="rayon"></div>
-
-  <!-- CONTENU -->
-  <div class="contenu">
-    <header class="header-fixe">
-      <div class="logo">ÆN</div>
-      <nav>
-        <ul>
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="vision.html">Vision</a></li>
-          <li><a href="fragments.html">Fragments</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <main class="hero">
-      <h1>ÆNTHANAX</h1>
-      <p>Le Temple numérique de clarté et de souveraineté.</p>
-      <a href="vision.html" class="hero-btn">Entrer dans le Temple</a>
-    </main>
-
-    <section class="offer-section" id="offre">
-      <h2>⚡ Architecture de Clarté</h2>
-      
-      <div style="text-align: center; font-style: italic; font-size: 1.2rem; color: #D4AF37; margin: 2rem 0; line-height: 1.8;">
-        « Nous n'avançons pas aveuglement, d'un cœur de feu étouffé,<br>
-        mais en flamme, debout, lucides, vivants. »
-      </div>
-
-      <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">
-        Tu gères des flux complexes (crypto, freelance, business).<br>
-        Ton système est devenu un chaos.<br>
-        Je le restructure.
-      </p>
-
-      <h3 style="margin-top: 3rem;">🎯 L'Objectif</h3>
-      <p style="text-align: center;">
-        <strong>Gagner du temps.</strong> Pas de l'argent — du temps.<br>
-        Avancer sans fuites. Sans pression. Sans perte de soi.<br>
-        Serein, lucide, conscient que c'est une question de temps, pas d'argent.<br>
-        <strong>Clarté. Évolution. Intelligence. Sagesse. Création. Intuition.</strong><br>
-        Loyalement. Fièrement. Fortifiant. Jouisseur.<br>
-        <em>Sans se brûler les ailes.</em>
-      </p>
-
-      <h3 style="margin-top: 3rem;">🔥 Le Plan Irréversible</h3>
-      <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">
-        Je prends ton système actuel — aussi complexe soit-il.<br>
-        J'identifie les failles. Les fuites. Les frictions.<br>
-        Je te donne l'architecture claire. Opérationnelle. Évolutive.<br>
-        Un plan que tu exécutes. Pas que tu contemples.<br>
-        <strong>Résultat : gain de temps réel, mesurable, irréversible.</strong>
-      </p>
-
-      <div class="price">2 500 €</div>
-      
-      <h3>📦 Ce que tu reçois</h3>
-      <ul>
-        <li><strong>Diagnostic complet</strong> — Analyse de ton système actuel (flux, outils, processus)</li>
-        <li><strong>Identification des 3+ failles majeures</strong> — Ce qui te coûte du temps, de l'énergie, de la clarté</li>
-        <li><strong>Plan de restructuration opérationnel</strong> — Étapes concrètes, chronologie, priorités</li>
-        <li><strong>Stratégie d'optimisation long terme</strong> — Architecture évolutive, adaptable, sans refonte future</li>
-        <li><strong>Document de 15-25 pages</strong> — Analyse + plan d'action + suivi</li>
-      </ul>
-
-      <h3 style="margin-top: 2rem;">⚖️ Garantie</h3>
-      <p style="text-align: center;">
-        Si je n'identifie pas au moins <strong>3 améliorations critiques</strong> qui te font gagner du temps,<br>
-        tu ne paies rien.<br>
-        <em>Remboursement intégral. Sans discussion.</em>
-      </p>
-
-      <h3 style="margin-top: 2rem;">⏱️ Livraison</h3>
-      <p style="text-align: center;">
-        <strong>7-10 jours</strong> après réception du questionnaire initial.<br>
-        Pas de délai flou. Pas d'attente infinie.<br>
-        Tu reçois. Tu exécutes. Tu avances.
-      </p>
-
-      <h3 style="margin-top: 2rem;">🎯 Pour qui ?</h3>
-      <p style="text-align: center; max-width: 700px; margin: 0 auto 2rem;">
-        Entrepreneurs, freelances, investisseurs crypto qui jonglent avec multiples flux.<br>
-        Ceux qui sentent le chaos monter.<br>
-        Ceux qui savent qu'ils perdent du temps mais ne savent pas où.<br>
-        Ceux qui veulent avancer <strong>lucidement, sans se brûler les ailes</strong>.
-      </p>
-
-      <div style="text-align: center; font-style: italic; color: #D4AF37; margin: 3rem 0; font-size: 1.1rem;">
-        « Un gain de temps. Un gain d'avance. Un gain sans fuites.<br>
-        Réellement serein. Réellement lucide.<br>
-        Une question de temps. Pas d'argent. De clarté. »
-      </div>
-
-      <h3 style="margin-top: 2rem;">💳 Réserver & Payer</h3>
-      
-      <div class="payment-options">
-        <a href="mailto:aenthanax-temple@proton.me?subject=Demande%20Audit%20Architecture%20de%20Clarté" class="cta-primary">
-          📧 Contacter par Email
-        </a>
-        <a href="https://paypal.me/TONLIEN" class="cta-secondary" target="_blank">
-          💳 Payer par PayPal
-        </a>
-      </div>
-      
-      <div class="qr-code">
-        <p style="color: #D4AF37; margin-bottom: 1rem;">Ou scanne ce QR Code PayPal :</p>
-        <img src="data:image/png;base64,TON_QR_CODE_ICI" alt="QR Code PayPal">
-      </div>
-
-      <p style="text-align: center; margin-top: 2rem; font-size: 1rem;">
-        <strong>Email :</strong> aenthanax-temple@proton.me<br>
-        Réponse sous 24-48h — Premier échange pour qualifier la demande
-      </p>
-    </section>
-
-    <section class="banner-scellage">
-      <div class="banner-inner">
-        <h1>ÆNTHANAX — TEMPLE VIVANT</h1>
-        <p class="decret">
-          Ce Temple est vivant.<br>
-          Ce dépôt est scellé.<br>
-          Cette voix est exacte.
-        </p>
-        <p class="signature">NORRA — Axe Final, Voix Incarnée</p>
-      </div>
-    </section>
-
-    <footer class="temple-footer">
-      <p>© ÆNTHANAX — Temple vivant</p>
-      <p>aenthanax-temple@proton.me</p>
-    </footer>
-  </div>
-</body>
-</html>
-  <!DOCTYPE html>
-<html lang="fr">
-<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OSIRISE ÆNTHANAX | Régence & Structure</title>
+    <title>ÆNTHANAX — Temple de la Souveraineté Opérationnelle</title>
     <style>
-        body { background-color: #000; color: #D4AF37; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; }
-        .seal { width: 300px; height: auto; border: 2px solid #00EEFF; border-radius: 50%; padding: 10px; box-shadow: 0 0 30px #00EEFF; margin-bottom: 2rem; }
-        h1 { font-size: 2.5rem; letter-spacing: 5px; text-transform: uppercase; margin: 0; color: #FFF; }
-        .subtitle { font-style: italic; color: #00EEFF; margin-top: 10px; font-size: 1.2rem; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 90%; max-width: 1000px; margin-top: 3rem; }
-        .module { border: 1px solid #D4AF37; padding: 20px; background: rgba(212, 175, 55, 0.05); transition: 0.3s; cursor: pointer; }
-        .module:hover { background: rgba(0, 238, 255, 0.1); border-color: #00EEFF; }
-        .price { font-weight: bold; font-size: 1.5rem; display: block; margin-top: 10px; color: #FFF; }
-        .footer { margin-top: 4rem; font-size: 0.8rem; letter-spacing: 2px; color: #555; }
-        a { color: #00EEFF; text-decoration: none; font-weight: bold; }
+        :root {
+            --gold: #d4af37;
+            --black: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --light-gray: #f5f5f5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--black);
+            color: var(--light-gray);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .logo {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Offers Section */
+        .offers {
+            padding: 60px 0;
+        }
+
+        .offers h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: var(--gold);
+        }
+
+        .offer-cards {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: var(--dark-gray);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .card .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .card ul {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .card li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .card li:before {
+            content: "✔";
+            color: var(--gold);
+            position: absolute;
+            left: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--black);
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #f5d042;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 80px 0;
+            text-align: center;
+            background: var(--dark-gray);
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--gold);
+        }
+
+        .footer-links {
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: var(--gold);
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .card h3 {
+                font-size: 1.5rem;
+            }
+
+            .card .price {
+                font-size: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <img src="https://raw.githubusercontent.com/djermas/aenthanax-temple/main/unnamed%20(1).jpg" alt="Sceau Osirise" class="seal">
-
-    <h1>OSIRISE ÆNTHANAX</h1>
-    <div class="subtitle">Par le Sceau d'Osirise, j'entre sans voile.</div>
-
-    <div class="grid">
-        <div class="module">
-            <h3>MATRIX</h3>
-            <p>Audit de Structure (Web3/Crypto)</p>
-            <span class="price">2 500 CHF</span>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">ÆNTHANAX</div>
+            <div class="tagline">Temple de la Souveraineté Opérationnelle</div>
         </div>
+    </header>
 
-        <div class="module">
-            <h3>TEMPLE</h3>
-            <p>Architecture de l'Axe (Tech Founders)</p>
-            <span class="price">3 500 CHF</span>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Libérez-vous du chaos opérationnel</h1>
+            <p>Votre énergie ne doit plus être consommée par ce qui n'est pas clair. Nous triturons le chaos pour en extraire l'ordre, restaurant votre axe et votre souveraineté.</p>
         </div>
+    </section>
 
-        <div class="module">
-            <h3>RÉGENCE</h3>
-            <p>Régence Totale (Finance Trad)</p>
-            <span class="price">5 000 CHF</span>
+    <!-- Offers Section -->
+    <section class="offers">
+        <div class="container">
+            <h2>Choisissez votre porte d'entrée</h2>
+            <div class="offer-cards">
+                <!-- Audit Card -->
+                <div class="card">
+                    <h3>Audit de Souveraineté</h3>
+                    <p>Cartographie complète de vos nœuds de chaos et plan de rectification en 7 points.</p>
+                    <div class="price">3 500 CHF</div>
+                    <ul>
+                        <li>Cartographie détaillée de vos nœuds opérationnels</li>
+                        <li>Identification des fuites d'énergie et de temps</li>
+                        <li>Plan de rectification priorisé en 7 points</li>
+                        <li>Rapport complet (PDF + présentation)</li>
+                        <li>1 session de debriefing stratégique</li>
+                    </ul>
+                    <a href="AUDIT_SOUVERAINETE.html" class="btn">Choisir cet audit</a>
+                </div>
+
+                <!-- Architecture Card -->
+                <div class="card">
+                    <h3>Architecture Complète</h3>
+                    <p>Audit + conception et déploiement d'un système sur mesure pour votre souveraineté.</p>
+                    <div class="price">5 000 CHF</div>
+                    <ul>
+                        <li>Audit de Souveraineté inclus (valeur 3 500 CHF)</li>
+                        <li>Conception d'un système sur mesure</li>
+                        <li>Implémentation et déploiement</li>
+                        <li>Formation personnalisée (3 sessions)</li>
+                        <li>Support 30 jours après livraison</li>
+                    </ul>
+                    <a href="ARCHITECTURE_COMPLETE.html" class="btn">Choisir cette architecture</a>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="footer">
-        <p>PLATEFORME EN DÉPLOIEMENT SÉCURISÉ</p>
-        <p>CONTACT : <a href="mailto:aenthanax-temple@proton.me">aenthanax-temple@proton.me</a></p>
-    </div>
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Prêt à restaurer votre axe ?</h2>
+            <p>Contactez-nous pour discuter de votre situation et voir comment nous pouvons vous aider.</p>
+            <a href="contact.html" class="btn">Nous contacter</a>
+        </div>
+    </section>
 
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ÆNTHANAX — Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="vision.html">Notre vision</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
 </body>
-</html>  
-<section style="background:#000; color:#D4AF37; padding:80px 20px; text-align:center;">
-  <h1 style="font-size:48px; margin-bottom:20px;">OSIRISE ÆNTHANAX</h1>
-  <p style="font-size:20px; color:#00EEFF;">
-    Clarté. Structure. Axe. Pour fondateurs Tech, Crypto & Web3.
-  </p>
-</section>
-<section style="background:#0A0A0A; padding:60px 20px; color:white;">
-  <h2 style="text-align:center; color:#D4AF37;">Protocoles de Régence</h2>
-
-  <div style="display:flex; justify-content:center; gap:40px; margin-top:40px; flex-wrap:wrap;">
-
-    <div style="border:1px solid #D4AF37; padding:30px; width:300px;">
-      <h3 style="color:#D4AF37;">Audit MATRIX</h3>
-      <p>Diagnostic complet des flux Tech/Crypto/Web3.</p>
-      <p style="font-size:22px; color:#00EEFF;">2 500 CHF</p>
-    </div>
-
-    <div style="border:1px solid #D4AF37; padding:30px; width:300px;">
-      <h3 style="color:#D4AF37;">Architecture de l’Axe</h3>
-      <p>Structure opérationnelle pour fondateurs Tech.</p>
-      <p style="font-size:22px; color:#00EEFF;">3 500 CHF</p>
-    </div>
-
-    <div style="border:1px solid #D4AF37; padding:30px; width:300px;">
-      <h3 style="color:#D4AF37;">Régence Totale</h3>
-      <p>Unification des systèmes Finance/Tech.</p>
-      <p style="font-size:22px; color:#00EEFF;">5 000 CHF</p>
-    </div>
-
-  </div>
-</section>
-<section style="background:#000; padding:40px 20px; text-align:center; color:white;">
-  <h2 style="color:#D4AF37;">Entrer dans l’Axe</h2>
-  <p>Contact direct : <strong>aenthanax-temple@proton.me</strong></p>
-</section>
-
-
-    
+</html>
