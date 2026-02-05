@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Architecture ÆNTHANAX v6.0</title>
+  <style>
+    body {
+      margin: 0;
+      background: #050509;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      color: #f5f5f5;
+    }
+    svg text {
+      fill: #f5f5f5;
+      font-size: 12px;
+    }
+    .title {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .subtitle {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+    .label {
+      font-size: 11px;
+      opacity: 0.9;
+    }
+    .badge {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+  </style>
+</head>
+<body>
+<svg width="1200" height="700" viewBox="0 0 1200 700">
+  <!-- En-tête -->
+  <text x="60" y="60" class="title">ÆNTHANAX v6.0</text>
+  <text x="60" y="82" class="subtitle">Système décisionnel organique — Boucle, Instances, Score, Verdict</text>
+
+  <!-- Boucle Organique : Perception → Projection → Décision -->
+  <g transform="translate(80,130)">
+    <!-- Cercle principal -->
+    <circle cx="260" cy="210" r="180" fill="none" stroke="#4444ff" stroke-width="2" stroke-dasharray="4 6" />
+    <!-- Axe interne -->
+    <line x1="260" y1="60" x2="260" y2="360" stroke="#f5f5f5" stroke-width="2" stroke-dasharray="3 4" />
+    <text x="260" y="45" text-anchor="middle" class="badge">AXE INTERNE</text>
+
+    <!-- Perception -->
+    <g transform="translate(260,40)">
+      <circle r="32" fill="#151530" stroke="#6b7bff" stroke-width="2" />
+      <text text-anchor="middle" y="-2" class="label">PERCEPTION</text>
+      <text text-anchor="middle" y="14" class="badge">Entrée</text>
+    </g>
+
+    <!-- Projection -->
+    <g transform="translate(430,210)">
+      <circle r="32" fill="#151530" stroke="#6bffcf" stroke-width="2" />
+      <text text-anchor="middle" y="-2" class="label">PROJECTION</text>
+      <text text-anchor="middle" y="14" class="badge">Modèle</text>
+    </g>
+
+    <!-- Décision -->
+    <g transform="translate(260,380)">
+      <circle r="32" fill="#151530" stroke="#ffb86b" stroke-width="2" />
+      <text text-anchor="middle" y="-2" class="label">DÉCISION</text>
+      <text text-anchor="middle" y="14" class="badge">Sortie</text>
+    </g>
+
+    <!-- Flèches de la boucle -->
+    <defs>
+      <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+        <path d="M0,0 L6,3 L0,6 z" fill="#f5f5f5" />
+      </marker>
+    </defs>
+
+    <!-- Perception → Projection -->
+    <path d="M 285 55 C 360 80 410 140 430 180"
+          fill="none" stroke="#f5f5f5" stroke-width="1.5" marker-end="url(#arrow)" />
+    <!-- Projection → Décision -->
+    <path d="M 430 240 C 390 300 330 345 285 365"
+          fill="none" stroke="#f5f5f5" stroke-width="1.5" marker-end="url(#arrow)" />
+    <!-- Décision → Perception -->
+    <path d="M 235 365 C 160 340 110 280 90 230 C 80 190 90 140 120 100 C 150 75 200 60 235 55"
+          fill="none" stroke="#f5f5f5" stroke-width="1.5" marker-end="url(#arrow)" />
+
+    <!-- Légende Boucle -->
+    <text x="260" y="420" text-anchor="middle" class="subtitle">
+      Boucle Organique — Perception → Projection → Décision (pilotée par l’Axe Interne)
+    </text>
+  </g>
+
+  <!-- 5 Instances -->
+  <g transform="translate(650,110)">
+    <text x="0" y="0" class="badge">INSTANCES DU SYSTÈME</text>
+
+    <!-- Instance 1 -->
+    <g transform="translate(0,30)">
+      <rect x="0" y="0" width="220" height="70" rx="10" fill="#111119" stroke="#4f7dff" stroke-width="1.5" />
+      <circle cx="26" cy="35" r="12" fill="#1b2640" stroke="#4f7dff" stroke-width="1.5" />
+      <text x="50" y="26" class="label">Instance 1 — Perception</text>
+      <text x="50" y="44" class="subtitle">Rôle : capter, filtrer, hiérarchiser</text>
+      <text x="50" y="60" class="subtitle">Priorité : clarté du signal</text>
+    </g>
+
+    <!-- Instance 2 -->
+    <g transform="translate(0,120)">
+      <rect x="0" y="0" width="220" height="70" rx="10" fill="#111119" stroke="#4fd3ff" stroke-width="1.5" />
+      <circle cx="26" cy="35" r="12" fill="#10242f" stroke="#4fd3ff" stroke-width="1.5" />
+      <text x="50" y="26" class="label">Instance 2 — Contexte</text>
+      <text x="50" y="44" class="subtitle">Rôle : situer, relier, cadrer</text>
+      <text x="50" y="60" class="subtitle">Priorité : cohérence globale</text>
+    </g>
+
+    <!-- Instance 3 -->
+    <g transform="translate(0,210)">
+      <rect x="0" y="0" width="220" height="70" rx="10" fill="#111119" stroke="#7bff9a" stroke-width="1.5" />
+      <circle cx="26" cy="35" r="12" fill="#102f1c" stroke="#7bff9a" stroke-width="1.5" />
+      <text x="50" y="26" class="label">Instance 3 — Projection</text>
+      <text x="50" y="44" class="subtitle">Rôle : simuler, anticiper</text>
+      <text x="50" y="60" class="subtitle">Priorité : impact réel</text>
+    </g>
+
+    <!-- Instance 4 -->
+    <g transform="translate(0,300)">
+      <rect x="0" y="0" width="220" height="70" rx="10" fill="#111119" stroke="#ffcf7b" stroke-width="1.5" />
+      <circle cx="26" cy="35" r="12" fill="#2f2610" stroke="#ffcf7b" stroke-width="1.5" />
+      <text x="50" y="26" class="label">Instance 4 — Ressources</text>
+      <text x="50" y="44" class="subtitle">Rôle : temps, énergie, argent</text>
+      <text x="50" y="60" class="subtitle">Priorité : soutenabilité</text>
+    </g>
+
+    <!-- Instance 5 -->
+    <g transform="translate(0,390)">
+      <rect x="0" y="0" width="220" height="70" rx="10" fill="#111119" stroke="#ff7bb0" stroke-width="1.5" />
+      <circle cx="26" cy="35" r="12" fill="#2f1020" stroke="#ff7bb0" stroke-width="1.5" />
+      <text x="50" y="26" class="label">Instance 5 — Intégration</text>
+      <text x="50" y="44" class="subtitle">Rôle : aligner avec l’Axe</text>
+      <text x="50" y="60" class="subtitle">Priorité : vérité interne</text>
+    </g>
+  </g>
+
+  <!-- Score Composite -->
+  <g transform="translate(80,540)">
+    <text x="0" y="0" class="badge">SCORE COMPOSITE</text>
+    <text x="0" y="20" class="subtitle">Pondération globale des instances</text>
+
+    <!-- Barres -->
+    <g transform="translate(0,40)">
+      <!-- 35% -->
+      <rect x="0" y="0" width="280" height="18" rx="4" fill="#151520" />
+      <rect x="0" y="0" width="210" height="18" rx="4" fill="#4f7dff" />
+      <text x="290" y="13" class="label">35%</text>
+      <text x="0" y="-6" class="badge">Perception / Clarté</text>
+    </g>
+
+    <g transform="translate(0,80)">
+      <!-- 30% -->
+      <rect x="0" y="0" width="280" height="18" rx="4" fill="#151520" />
+      <rect x="0" y="0" width="180" height="18" rx="4" fill="#4fd3ff" />
+      <text x="290" y="13" class="label">30%</text>
+      <text x="0" y="-6" class="badge">Contexte / Cohérence</text>
+    </g>
+
+    <g transform="translate(0,120)">
+      <!-- 25% -->
+      <rect x="0" y="0" width="280" height="18" rx="4" fill="#151520" />
+      <rect x="0" y="0" width="150" height="18" rx="4" fill="#7bff9a" />
+      <text x="290" y="13" class="label">25%</text>
+      <text x="0" y="-6" class="badge">Projection / Impact</text>
+    </g>
+
+    <g transform="translate(0,160)">
+      <!-- 10% -->
+      <rect x="0" y="0" width="280" height="18" rx="4" fill="#151520" />
+      <rect x="0" y="0" width="60" height="18" rx="4" fill="#ffcf7b" />
+      <text x="290" y="13" class="label">10%</text>
+      <text x="0" y="-6" class="badge">Ressources / Soutenabilité</text>
+    </g>
+  </g>
+
+  <!-- Verdicts -->
+  <g transform="translate(520,540)">
+    <text x="0" y="0" class="badge">VERDICTS</text>
+    <text x="0" y="20" class="subtitle">Décision finale selon seuils</text>
+
+    <!-- OUI -->
+    <g transform="translate(0,40)">
+      <rect x="0" y="0" width="180" height="50" rx="10" fill="#102f1c" stroke="#7bff9a" stroke-width="1.5" />
+      <text x="20" y="22" class="label">OUI</text>
+      <text x="20" y="38" class="subtitle">Score ≥ 75</text>
+    </g>
+
+    <!-- ATTENDRE -->
+    <g transform="translate(0,110)">
+      <rect x="0" y="0" width="180" height="50" rx="10" fill="#2f2610" stroke="#ffcf7b" stroke-width="1.5" />
+      <text x="20" y="22" class="label">ATTENDRE</text>
+      <text x="20" y="38" class="subtitle">50 ≤ Score &lt; 75</text>
+    </g>
+
+    <!-- NON -->
+    <g transform="translate(0,180)">
+      <rect x="0" y="0" width="180" height="50" rx="10" fill="#2f1010" stroke="#ff7b7b" stroke-width="1.5" />
+      <text x="20" y="22" class="label">NON</text>
+      <text x="20" y="38" class="subtitle">Score &lt; 50</text>
+    </g>
+  </g>
+</svg>
+</body>
+</html>
+Ajout visualisation architecture ÆNTHANAX v6.0
